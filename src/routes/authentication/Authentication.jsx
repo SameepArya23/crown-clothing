@@ -11,6 +11,9 @@ import // auth,
 import SignUpForm from "../../components/sign-up-form/SignUpForm";
 import SignInForm from "../../components/sign-in-form/SignInForm";
 import "./authentication.styles.scss";
+import { UserContext } from "../../contexts/User.context";
+import { Fragment, useContext } from "react";
+import UserProfile from "../../components/user-profile/UserProfile";
 
 const Authentication = () => {
   /*
@@ -24,6 +27,7 @@ const Authentication = () => {
        })();
      }, []);
 */
+  const { currentUser } = useContext(UserContext);
 
   return (
     <div className="authentication-container">
@@ -31,8 +35,15 @@ const Authentication = () => {
       <button onClick={signInWithGoogleRedirect}>
         sign-in with Google redirect
       </button> */}
-      <SignInForm />
-      <SignUpForm />
+
+      {currentUser ? (
+        <UserProfile />
+      ) : (
+        <Fragment>
+          <SignInForm />
+          <SignUpForm />
+        </Fragment>
+      )}
     </div>
   );
 };

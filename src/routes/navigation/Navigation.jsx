@@ -26,21 +26,23 @@ const Navigation = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <Fragment>
-              <span
-                className={`nav-link`}
-                onMouseEnter={toggleSignOutDropdown}
-                onMouseLeave={toggleSignOutDropdown}
-              >
-                {`Hi ${currentUser.displayName.split(" ")[0].toUpperCase()}!` ||
-                  "SIGN-IN"}
-                {signOutDropdownOpen && (
-                  <span className="nav-link-dropdown" onClick={signOutUser}>
-                    SIGN-OUT
-                  </span>
-                )}
-              </span>
-            </Fragment>
+            <span
+              className={`nav-link`}
+              onMouseEnter={toggleSignOutDropdown}
+              onMouseLeave={toggleSignOutDropdown}
+            >
+              {currentUser.displayName !== null
+                ? `Hi ${currentUser.displayName
+                    .split(" ")[0]
+                    .toUpperCase()}!` || "SIGN-IN"
+                : "Hi USER!"}
+
+              {signOutDropdownOpen && (
+                <span className="nav-link-dropdown" onClick={signOutUser}>
+                  Sign-Out
+                </span>
+              )}
+            </span>
           ) : (
             <Link className="nav-link" to="/auth">
               SIGN-IN
