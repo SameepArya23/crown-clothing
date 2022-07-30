@@ -7,11 +7,19 @@ import {
 export const UserContext = createContext({
   currentUser: null,
   setCurrentUser: () => null,
+  signOutDropdownOpen: false,
+  setSignOutDropdownOpen: () => {},
 });
 
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-  const value = { currentUser, setCurrentUser };
+  const [signOutDropdownOpen, setSignOutDropdownOpen] = useState(false);
+  const value = {
+    currentUser,
+    setCurrentUser,
+    signOutDropdownOpen,
+    setSignOutDropdownOpen,
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListner((user) => {

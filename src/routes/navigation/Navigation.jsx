@@ -9,8 +9,12 @@ import CartDropdown from "../../components/cart-dropdown/CartDropdown";
 import { CartContext } from "../../contexts/Cart.context";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, signOutDropdownOpen, setSignOutDropdownOpen } =
+    useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+  const toggleSignOutDropdown = () =>
+    setSignOutDropdownOpen(!signOutDropdownOpen);
+
   return (
     <Fragment>
       <div className="navigation">
@@ -22,9 +26,21 @@ const Navigation = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutUser}>
-              SIGN OUT
-            </span>
+            <Fragment>
+              <span
+                className={`nav-link`}
+                onMouseEnter={toggleSignOutDropdown}
+                onMouseLeave={toggleSignOutDropdown}
+              >
+                {`Hi ${currentUser.displayName.split(" ")[0].toUpperCase()}!` ||
+                  "SIGN-IN"}
+                {signOutDropdownOpen && (
+                  <span className="nav-link-dropdown" onClick={signOutUser}>
+                    SIGN-OUT
+                  </span>
+                )}
+              </span>
+            </Fragment>
           ) : (
             <Link className="nav-link" to="/auth">
               SIGN-IN

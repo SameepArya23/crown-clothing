@@ -23,11 +23,24 @@
       font-weight: bolder;
       color: rgba(0, 0, 0, 0.689);
       cursor: pointer;
+      position: relative;
+    }
+
+    .nav-link-dropdown{
+      position: absolute;
+      top: 90%;
+      right: 0%;
+      padding: 8px 8px;
+      background-color: white;
+      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.297);
+      border-radius: 5px;
+      color: rgb(77, 77, 77);
     }
 
     .nav-link:hover{
       color: black;
       transition: all .6s ease;
     }
+
   }
 }
