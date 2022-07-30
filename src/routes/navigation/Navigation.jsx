@@ -26,11 +26,7 @@ const Navigation = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span
-              className={`nav-link`}
-              onMouseEnter={toggleSignOutDropdown}
-              onMouseLeave={toggleSignOutDropdown}
-            >
+            <span className={`nav-link`} onClick={toggleSignOutDropdown}>
               {currentUser.displayName !== null
                 ? `Hi ${currentUser.displayName
                     .split(" ")[0]

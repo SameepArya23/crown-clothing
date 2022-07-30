@@ -9,7 +9,10 @@ const UserProfile = () => {
     <div className="profile-img">
       <div className="profile-container">
         <div className="txt">
-          WELCOME {currentUser.displayName.toUpperCase() || "USER"}
+          WELCOME{" "}
+          {currentUser.displayName == null
+            ? "USER"
+            : currentUser.displayName.toUpperCase()}
         </div>
         <div className="txt">You have successfully signed in your account.</div>
         <div className="txt">"HAPPY SHOPPING!"</div>
