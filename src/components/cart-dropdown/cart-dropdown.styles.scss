@@ -10,6 +10,8 @@
   top: 90px;
   right: 40px;
   z-index: 5;
+  opacity: 1;
+  transition: all 0.5s ease;
 
   .empty-message {
     font-size: 18px;
@@ -26,4 +28,22 @@
   button {
     margin-top: auto;
   }
+}
+
+.open-cart{
+  animation: open-drp 0.5s ease;
+}
+
+.close-cart{
+  animation: close-drp 0.5s ease;
+}
+
+@keyframes open-drp {
+  0% {top: 40px; opacity: 0;}
+  100% {top: 90px; opacity: 1;}
+}
+
+@keyframes close-drp {
+  0% {top: 90px; opacity: 1;}
+  100% {top: 40px; opacity: 0;}
 }

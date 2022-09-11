@@ -6,7 +6,27 @@ import Home from "./routes/home/home";
 import Navigation from "./routes/navigation/Navigation";
 import Shop from "./routes/shop/Shop";
 
+import { useDispatch } from "react-redux/es/exports";
+import { setCurrentUser } from "./store/user/user.action";
+import { useState, useEffect, useReducer } from "react";
+import {
+  createUserDocumentFromAuth,
+  onAuthStateChangedListner,
+} from "./utils/firebase/firebase.utils";
+
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListner((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      dispatch(setCurrentUser(user));
+    });
+    return unsubscribe;
+  }, []);
+
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>

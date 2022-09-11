@@ -37,7 +37,7 @@ const SignUpForm = () => {
         email,
         password
       );
-      await createUserDocumentFromAuth(user, { displayName });
+      await createUserDocumentFromAuth(user);
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("email already in use, please choose another email");

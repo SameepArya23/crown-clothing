@@ -5,7 +5,9 @@ import { CartContext } from "../../contexts/Cart.context";
 
 const CartIcon = () => {
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
-  const toggleCartDropdown = () => setIsCartOpen(!isCartOpen);
+  const toggleCartDropdown = () => {
+    setIsCartOpen(!isCartOpen);
+  };
 
   return (
     <div className="cart-icon-container" onClick={toggleCartDropdown}>

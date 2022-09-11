@@ -4,4 +4,10 @@
     height: 70vh;
     justify-content: space-around;
     margin: 30px auto;
+
+    @media screen and (max-width: 800px) {
+        height: unset;
+        margin: unset;
+        flex-direction: column;
+    }
 }

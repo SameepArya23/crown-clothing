@@ -16,26 +16,10 @@ import { Fragment, useContext } from "react";
 import UserProfile from "../../components/user-profile/UserProfile";
 
 const Authentication = () => {
-  /*
-    # SIGN-IN WITH REDIRECT METHOD.
-     useEffect(() => {
-       (async () => {
-         const response = await getRedirectResult(auth);
-         if (response) {
-           const userDocRef = createUserDocumentFromAuth(response.user);
-         }
-       })();
-     }, []);
-*/
   const { currentUser } = useContext(UserContext);
 
   return (
     <div className="authentication-container">
-      {/* # implement the redirect method. 
-      <button onClick={signInWithGoogleRedirect}>
-        sign-in with Google redirect
-      </button> */}
-
       {currentUser ? (
         <UserProfile />
       ) : (
