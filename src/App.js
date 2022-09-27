@@ -8,11 +8,12 @@ import Shop from "./routes/shop/Shop";
 
 import { useDispatch } from "react-redux/es/exports";
 import { setCurrentUser } from "./store/user/user.action";
-import { useState, useEffect, useReducer } from "react";
+import { useEffect } from "react";
 import {
   createUserDocumentFromAuth,
   onAuthStateChangedListner,
 } from "./utils/firebase/firebase.utils";
+import Spinner from "./components/spinner/spinner.component";
 
 const App = () => {
   const dispatch = useDispatch();

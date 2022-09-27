@@ -1,23 +1,13 @@
-/*
-# IMPORTING SOME FUNCTIONS TO USE THE REDIRECT METHOD(includes{ auth, signInWithGoogleRedirect })
- import { useEffect } from "react";
- import { getRedirectResult } from "firebase/auth";
-*/
-import // auth,
-// signInWithGooglePopup,
-// signInWithGoogleRedirect,
-// createUserDocumentFromAuth,
-"../../utils/firebase/firebase.utils";
 import SignUpForm from "../../components/sign-up-form/SignUpForm";
 import SignInForm from "../../components/sign-in-form/SignInForm";
 import "./authentication.styles.scss";
-import { UserContext } from "../../contexts/User.context";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import UserProfile from "../../components/user-profile/UserProfile";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const Authentication = () => {
-  const { currentUser } = useContext(UserContext);
-
+  const currentUser = useSelector(selectCurrentUser);
   return (
     <div className="authentication-container">
       {currentUser ? (

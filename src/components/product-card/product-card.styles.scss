@@ -9,6 +9,7 @@
   @media screen and (max-width: 800px) {
     width: 90%;
     height: 300px;
+    align-items: flex-start;
 }
 
   img {
@@ -49,6 +50,10 @@
     display: flex;
     justify-content: space-between;
     font-size: 18px;
+    
+    @media screen and (max-width: 800px) {
+      width: 90%;
+  }
 
     .name {
       width: 90%;

@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { UserContext } from "../../contexts/User.context";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import "./user-profile.styles.scss";
 
 const UserProfile = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
 
   return (
     <div className="profile-img">
